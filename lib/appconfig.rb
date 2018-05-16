@@ -44,11 +44,11 @@ class ApplicationConfig
     end
 
     def root
-      @_root ||= defined?(Rails) ? Rails.root.to_s : __FILE__
+      defined?(Rails) ? Rails.root.to_s : __FILE__
     end
 
     def env
-      @_env ||= defined?(Rails) ? Rails.env : 'development'
+      defined?(Rails) ? Rails.env : 'development'
     end
   end
 end
