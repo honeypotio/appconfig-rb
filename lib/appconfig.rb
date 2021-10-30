@@ -36,9 +36,13 @@ class ApplicationConfig
 
     def load_config(file_name)
       file = File.read(File.expand_path(file_name, root))
-      yml = YAML.load(ERB.new(file).result)
+      rendered = ERB.new(file).result
+      yml = YAML.load(rendered)
 
       yml[env] || {}
+    rescue Psych::SyntaxError => e
+      puts "ERROR PARSING YAML FILE #{file_name.inspect}: #{e.to_s}"
+      {}
     rescue
       {}
     end
