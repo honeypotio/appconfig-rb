@@ -40,10 +40,8 @@ class ApplicationConfig
       yml = YAML.load(rendered)
 
       yml[env] || {}
-    rescue Psych::SyntaxError => e
-      puts "ERROR PARSING YAML FILE #{file_name.inspect}: #{e.to_s}"
-      {}
-    rescue
+    rescue => e
+      puts "AppConfig: ERROR in file #{file_name.inspect}: #{e.to_s}"
       {}
     end
 

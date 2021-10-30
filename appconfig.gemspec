@@ -1,6 +1,6 @@
 Gem::Specification.new { |s|
   s.name        = 'appconfig'
-  s.version     = '0.0.2'
+  s.version     = '0.0.3'
   s.author      = 'Honeypot GmbH'
   s.email       = 'hello@honeypot.io'
   s.homepage    = 'http://github.com/honeypotio/appconfig'
